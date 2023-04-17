@@ -6,6 +6,7 @@ import '../models/models.dart';
 
 class AppMethods {
   AppMethods._();
+
   static void addToCart(ShoeModel data, BuildContext context) {
     bool contains = itemsOnBag.contains(data);
 
@@ -13,7 +14,7 @@ class AppMethods {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(failedSnackBar());
     } else {
-   //  itemsOnBag.add(data);
+    itemsOnBag.add(data);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(successSnackBar());
     }
@@ -21,9 +22,9 @@ class AppMethods {
 
   static double sumOfItemsOnBag() {
     double sumPrice = 0.0;
-  /* for (ShoeModel bagModel in itemsOnBag) {
+   for (ShoeModel bagModel in itemsOnBag) {
       sumPrice = sumPrice + bagModel.price;
-    }*/
+    }
     return sumPrice;
   }
 }
